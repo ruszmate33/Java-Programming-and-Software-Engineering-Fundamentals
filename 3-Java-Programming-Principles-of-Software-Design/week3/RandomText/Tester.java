@@ -19,7 +19,7 @@ public class Tester {
         MarkovOne markov = new MarkovOne();
         markov.setRandom(42);
         markov.setTraining(st);
-        ArrayList<String> follows = markov.getFollows("th");
+        ArrayList<String> follows = markov.getFollows("he");
         //System.out.println(follows);
         System.out.println(follows.size());
     }

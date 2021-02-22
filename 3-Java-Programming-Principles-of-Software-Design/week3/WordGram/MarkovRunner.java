@@ -32,9 +32,36 @@ public class MarkovRunner {
         FileResource fr = new FileResource(); 
         String st = fr.asString(); 
         st = st.replace('\n', ' '); 
-        MarkovWord markovWord = new MarkovWord(3); 
-        runModel(markovWord, st, 200, 643); 
-    } 
+        MarkovWord markovWord = new MarkovWord(5); 
+        runModel(markovWord, st, 200, 844); 
+    }
+    
+    public void testHashMap() {
+        //String st = "this is a test yes this is really a test yes a test this is wow"; 
+        FileResource fr = new FileResource(); 
+        String st = fr.asString();
+        st = st.replace('\n', ' '); 
+        EfficientMarkovWord effmarkovWord = new EfficientMarkovWord(2); 
+        runModel(effmarkovWord, st, 200, 65); 
+        effmarkovWord.printHashMapInfo();
+    }
+    
+    public void compareMethods() {
+        FileResource fr = new FileResource(); 
+        String st = fr.asString(); 
+        st = st.replace('\n', ' ');
+        MarkovWord markovWord = new MarkovWord(2); 
+        long start = System.nanoTime();
+        runModel(markovWord, st, 100, 42);
+        long end = System.nanoTime();
+        System.out.println("markovWord: " + (end-start)/1000000+ " milliseconds");
+        
+        EfficientMarkovWord effmarkovWord = new EfficientMarkovWord(2); 
+        start = System.nanoTime();
+        runModel(effmarkovWord, st, 100, 42);
+        end = System.nanoTime();
+        System.out.println("efficient markovWord: " + (end-start)/1000000 + " milliseconds");
+    }
 
     private void printOut(String s){
         String[] words = s.split("\\s+");
@@ -49,6 +76,6 @@ public class MarkovRunner {
             } 
         } 
         System.out.println("\n----------------------------------");
-    } 
+    }
 
 }

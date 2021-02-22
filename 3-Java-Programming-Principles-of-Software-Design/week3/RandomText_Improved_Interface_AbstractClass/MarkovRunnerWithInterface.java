@@ -11,7 +11,7 @@ import edu.duke.*;
 public class MarkovRunnerWithInterface {
     public void testHashMap() {
         EfficientMarkovModel effMarkov = new EfficientMarkovModel(5);
-        int seed = 615;
+        int seed = 531;
         // String st ="yes-this-is-a-thin-pretty-pink-thistle";
         
         FileResource fr = new FileResource();

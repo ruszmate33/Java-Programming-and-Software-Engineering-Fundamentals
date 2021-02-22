@@ -54,5 +54,9 @@ public class WordGram {
         WordGram out = new WordGram(shiftedWords, 0, myWords.length);
         return out;
     }
-
+    
+    public int hashCode() {
+        String wordGramString = toString();
+        return wordGramString.hashCode();
+    }
 }
